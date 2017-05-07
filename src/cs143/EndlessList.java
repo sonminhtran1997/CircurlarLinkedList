@@ -37,20 +37,14 @@ public class EndlessList<E> implements Iterable<E> {
         Node newNode = new Node(value);
         if (cursor == null) {
             cursor = newNode;
+            cursor.setNext(newNode);
+            cursor.setPrev(newNode);
         } else {
-            if (cursor.getNext() == null && cursor.getPrev() == null) {
-                cursor.setPrev(newNode);
-                cursor.setNext(newNode);
-                newNode.setPrev(cursor);
-                newNode.setNext(cursor);
-                cursor = newNode;
-            } else {
-                newNode.setNext(cursor);
-                newNode.setPrev(cursor.getPrev());
-                cursor.getPrev().setNext(newNode);
-                cursor.setPrev(newNode);
-                cursor = newNode;
-            }
+            newNode.setNext(cursor);
+            newNode.setPrev(cursor.getPrev());
+            cursor.getPrev().setNext(newNode);
+            cursor.setPrev(newNode);
+            cursor = newNode;
         }
     }
 
@@ -66,20 +60,14 @@ public class EndlessList<E> implements Iterable<E> {
         Node newNode = new Node(value);
         if (cursor == null) {
             cursor = newNode;
+            cursor.setNext(cursor);
+            cursor.setPrev(cursor);
         } else {
-            if (cursor.getNext() == null && cursor.getPrev() == null) {
-                cursor.setNext(newNode);
-                cursor.setPrev(newNode);
-                newNode.setNext(cursor);
-                newNode.setPrev(cursor);
-                cursor = newNode;
-            } else {
-                newNode.setPrev(cursor);
-                newNode.setNext(cursor.getNext());
-                cursor.getNext().setPrev(newNode);
-                cursor.setNext(newNode);
-                cursor = newNode;
-            }
+            newNode.setPrev(cursor);
+            newNode.setNext(cursor.getNext());
+            cursor.getNext().setPrev(newNode);
+            cursor.setNext(newNode);
+            cursor = newNode;
         }
     }
 
@@ -96,14 +84,6 @@ public class EndlessList<E> implements Iterable<E> {
         Node prev;
         if (cursor == null) {
             return null;
-        } else if (cursor.getNext() == null && cursor.getPrev() == null) {
-            return null;
-        } else if (cursor.getNext() == cursor.getPrev()) {
-            remove = cursor;
-            cursor = cursor.getNext();
-            cursor.setNext(null);
-            cursor.setPrev(null);
-            return (E) remove.getValue();
         } else {
             remove = cursor;
             prev = cursor.getPrev();
@@ -155,8 +135,6 @@ public class EndlessList<E> implements Iterable<E> {
         // TODO write method body //
         if (cursor == null) {
             return null;
-        } else if (cursor.getNext() == null && cursor.getPrev() == null) {
-            return (E) cursor.getValue();
         } else {
             cursor = cursor.getPrev();
             return (E) cursor.getValue();
@@ -173,8 +151,6 @@ public class EndlessList<E> implements Iterable<E> {
         // TODO write method body //
         if (cursor == null) {
             return null;
-        } else if (cursor.getNext() == null && cursor.getPrev() == null) {
-            return (E) cursor.getValue();
         } else {
             cursor = cursor.getNext();
             return (E) cursor.getValue();
@@ -237,6 +213,7 @@ public class EndlessList<E> implements Iterable<E> {
     @Override
     public Iterator<E> iterator() {
         return new EndlessListIterator();
+
     }
 
     /**
@@ -257,13 +234,13 @@ public class EndlessList<E> implements Iterable<E> {
          */
         @Override
         public boolean hasNext() {
-            // TODO write method body //
-            if (START.equals(null)) {
-                return false;
-            }
-            {
-
-            }
+//            // TODO write method body //
+//            if (START.equals(null)) {
+//                return false;
+//            } else if (cursor.getNext().equals()) {
+//
+//            }
+            return true;
         }
 
         /**
@@ -276,8 +253,6 @@ public class EndlessList<E> implements Iterable<E> {
             // TODO write method body //
             if (cursor == null) {
                 return null;
-            } else if (cursor.getNext() == null && cursor.getPrev() == null) {
-                return (E) cursor.getValue();
             } else {
                 Node temp = cursor;
                 cursor = cursor.getNext();
