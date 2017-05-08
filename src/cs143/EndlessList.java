@@ -240,6 +240,13 @@ public class EndlessList<E> implements Iterable<E> {
 //            } else if (cursor.getNext().equals()) {
 //
 //            }
+            if (cursor == START && !handledStart) {
+                handledStart = true;
+                return true;
+            }
+            if (cursor == START && handledStart) {
+                return false;
+            }
             return true;
         }
 
@@ -268,6 +275,7 @@ public class EndlessList<E> implements Iterable<E> {
         @Override
         public void remove() {
             // TODO write method body //
+            
         }
 
     }
