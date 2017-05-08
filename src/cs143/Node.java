@@ -19,7 +19,7 @@ public class Node<E> {
      */
     public Node(E value) {
         this.value = value;
-    }
+    }                 
     
     /**
      * Full constructor.
