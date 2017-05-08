@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Node.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Project3Complete&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">cs143</a> &gt; <span class="el_source">Node.java</span></div><h1>Node.java</h1><pre class="source lang-java linenums">package cs143;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Node.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Project3&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">cs143</a> &gt; <span class="el_source">Node.java</span></div><h1>Node.java</h1><pre class="source lang-java linenums">package cs143;
 
 /**
  * This class represents a generic node in a doubly linked list.
@@ -19,7 +19,7 @@ public class Node&lt;E&gt; {
      */
 <span class="fc" id="L20">    public Node(E value) {</span>
 <span class="fc" id="L21">        this.value = value;</span>
-<span class="fc" id="L22">    }</span>
+<span class="fc" id="L22">    }                 </span>
     
     /**
      * Full constructor.
@@ -40,7 +40,8 @@ public class Node&lt;E&gt; {
      * @return the previous node
      */
     public Node getPrev() {
-<span class="fc" id="L43">        return prev;</span>
+        //this is just for testing if this work
+<span class="fc" id="L44">	return prev;</span>
     }
 
     /**
@@ -49,8 +50,8 @@ public class Node&lt;E&gt; {
      * @param prev the previous node 
      */
     public void setPrev(Node prev) {
-<span class="fc" id="L52">        this.prev = prev;</span>
-<span class="fc" id="L53">    }</span>
+<span class="fc" id="L53">        this.prev = prev;</span>
+<span class="fc" id="L54">    }</span>
 
     /**
      * Provides access to the next node.
@@ -58,7 +59,7 @@ public class Node&lt;E&gt; {
      * @return the next node
      */
     public Node getNext() {
-<span class="fc" id="L61">        return next;</span>
+<span class="fc" id="L62">        return next;</span>
     }
 
     /**
@@ -67,8 +68,8 @@ public class Node&lt;E&gt; {
      * @param next the next node
      */
     public void setNext(Node next) {
-<span class="fc" id="L70">        this.next = next;</span>
-<span class="fc" id="L71">    }</span>
+<span class="fc" id="L71">        this.next = next;</span>
+<span class="fc" id="L72">    }</span>
 
     /**
      * Provides access to the value stored in this node
@@ -76,7 +77,7 @@ public class Node&lt;E&gt; {
      * @return the value
      */
     public E getValue() {
-<span class="fc" id="L79">        return value;</span>
+<span class="fc" id="L80">        return value;</span>
     }
 
     /**
@@ -85,8 +86,8 @@ public class Node&lt;E&gt; {
      * @param value the value
      */
     public void setValue(E value) {
-<span class="fc" id="L88">        this.value = value;</span>
-<span class="fc" id="L89">    }</span>
+<span class="fc" id="L89">        this.value = value;</span>
+<span class="fc" id="L90">    }</span>
     
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

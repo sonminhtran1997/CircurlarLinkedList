@@ -20,10 +20,6 @@ public class EndlessList<E> implements Iterable<E> {
     public EndlessList() {
     }
 
-    public EndlessList(Node first) {
-        this.cursor = first;
-    }
-
     /**
      * Adds a value before the current one and moves the cursor to the new
      * value. If the list is empty the value is simply added and becomes the
@@ -83,6 +79,10 @@ public class EndlessList<E> implements Iterable<E> {
         Node prev;
         if (cursor == null) {
             return null;
+        } else if (cursor.getNext() == cursor && cursor.getPrev() == cursor) {
+            remove = cursor;
+            cursor = null;
+            return (E) remove.getValue();
         } else {
             remove = cursor;
             prev = cursor.getPrev();
@@ -173,7 +173,7 @@ public class EndlessList<E> implements Iterable<E> {
             if (cursor == tempCursor) {
                 return false;
             }
-            if (cursor.getValue().equals(tempCursor.getValue())) {
+            if (cursor.getValue().equals(value)) {
                 found = true;
             }
         }
@@ -197,7 +197,7 @@ public class EndlessList<E> implements Iterable<E> {
             if (cursor == tempCursor) {
                 return false;
             }
-            if (cursor.getValue().equals(tempCursor.getValue())) {
+            if (cursor.getValue().equals(value)) {
                 found = true;
             }
         }
@@ -233,23 +233,21 @@ public class EndlessList<E> implements Iterable<E> {
          */
         @Override
         public boolean hasNext() {
-//            // TODO write method body //
-//            if (START.equals(null)) {
-//                return false;
-//            } else if (cursor.getNext().equals()) {
-//
-//            }
             if (cursor == null) {
                 return false;
             }
-            if (cursor == START && !handledStart) {
-                handledStart = true;
-                return true;
-            }
-            if (cursor == START && handledStart) {
+//            if (cursor == START && !handledStart) {
+//                return true;
+//            }
+//            if (cursor == START && handledStart) {
+//                return false;
+//            }
+            if (handledStart) {
                 return false;
             }
-            return true;
+            else{
+                return true;
+            }
         }
 
         /**
@@ -260,9 +258,13 @@ public class EndlessList<E> implements Iterable<E> {
         @Override
         public E next() {
             // TODO write method body //
+            if (cursor == START && !handledStart) {
+                handledStart = true;
+            }
             if (cursor == null) {
                 return null;
-            } else {
+            }
+            else {
                 Node temp = cursor;
                 cursor = cursor.getNext();
                 return (E) temp.getValue();
