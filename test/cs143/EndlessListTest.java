@@ -210,9 +210,11 @@ public class EndlessListTest {
         assertTrue((Integer) it.next() == 2);
         assertTrue((Integer) it.next() == 3);
         assertFalse(it.hasNext());
-        it.next();
-        assertFalse(it.hasNext());
         Iterator it2 = numList.iterator();
+        it.remove();
+        it.next();
+        it.next();
+        
         
         
         
