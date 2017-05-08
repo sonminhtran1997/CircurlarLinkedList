@@ -236,18 +236,13 @@ public class EndlessList<E> implements Iterable<E> {
             if (cursor == null) {
                 return false;
             }
-//            if (cursor == START && !handledStart) {
-//                return true;
-//            }
-//            if (cursor == START && handledStart) {
-//                return false;
-//            }
-            if (handledStart) {
-                return false;
-            }
-            else{
+            if (cursor == START && !handledStart) {
                 return true;
             }
+            if (cursor == START && handledStart) {
+                return false;
+            }
+            return false;
         }
 
         /**
