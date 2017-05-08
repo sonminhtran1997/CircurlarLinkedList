@@ -20,7 +20,6 @@ public class EndlessList<E> implements Iterable<E> {
     public EndlessList() {
     }
 
-    ;
     public EndlessList(Node first) {
         this.cursor = first;
     }
@@ -280,12 +279,11 @@ public class EndlessList<E> implements Iterable<E> {
             // TODO write method body //
             if (cursor.getNext() == cursor && cursor.getPrev() == cursor) {
                 cursor = null;
-            }
-            else{
+            } else {
                 cursor.getPrev().getPrev().setNext(cursor);
                 cursor.setPrev(cursor.getPrev().getPrev());
             }
-            
+
         }
 
     }
